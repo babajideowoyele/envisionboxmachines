@@ -1,0 +1,912 @@
+/*
+ * EnvisionBOX Design System
+ * Single source of truth for tokens, typography, shared components.
+ * All pages link this before their own <style> block.
+ * Page-specific rules live in each page's <style> and may extend (not override) these.
+ */
+
+/* ── RESET ──────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+img { max-width: 100%; display: block; }
+
+/* ── TOKENS ─────────────────────────────────────────────────────── */
+/*
+ * NAMING ALIASES
+ * Pages use two historical naming conventions. Both resolve here so
+ * no page-level renaming is needed during the migration.
+ *
+ * Short (current):  --s  --s2  --s3  --t  --tm  --b  --blue  --orange ...
+ * Long  (learn/graph): --surface  --surface-2  --text  --text-muted  --border ...
+ * Brand-prefixed (learn): --brand-blue  --brand-orange  --brand-gradient ...
+ */
+:root {
+
+  /* ── Semantic surface + accent tokens ──────────────────────────────
+     Everything that needs to flip between light and dark goes through
+     these. Do not hardcode an accent colour in a page: the value has to
+     have a dark counterpart or the page breaks in dark mode. Contrast
+     verified for both themes. */
+  --card:        #ffffff;   /* panels, cards, popovers          */
+  --link:        #0061B0;   /* 6.29 on white, 5.57 on --accent-soft */
+  --link-hover:  #004A87;
+  --accent-soft: #eaf2fa;   /* tinted fill behind active states */
+  --accent-line: #cfe0f0;   /* tinted border                    */
+  --on-accent:   #ffffff;   /* text on a solid accent fill      */
+
+  /* Difficulty chips — same three levels used on cards, tracks and module pages */
+  --lvl1-bg: #eaf7ef; --lvl1-line: #bfe3cd; --lvl1-fg: #1a7f45;  /* Beginner     */
+  --lvl2-bg: #fdf4e3; --lvl2-line: #ecd7a8; --lvl2-fg: #8a6412;  /* Intermediate */
+  --lvl3-bg: #fdecec; --lvl3-line: #f2c2c2; --lvl3-fg: #a32222;  /* Advanced     */
+  /* Brand palette */
+  --blue:   #1A5FB4;
+  --orange: #FF7800;
+  --red:    #CC1111;
+  --yellow: #FFD000;
+  /* The signature identity ramp — one way through all six brand colours.
+     Source: 250526_ENVISION BOX_Logo and VI.pdf (Helene Baum-Owoyele). */
+  --grad: linear-gradient(90deg, #241F21 0%, #59595C 18%, #0061B0 38%,
+                          #75406B 56%, #ED1C24 76%, #FFDE17 100%);
+  /* Text-safe subset: the full ramp starts near-black, which reads as plain
+     text when clipped to glyphs. This drops black and gray so gradient text
+     stays legibly coloured. */
+  --grad-text: linear-gradient(90deg, #0061B0 0%, #75406B 34%, #ED1C24 68%, #FFDE17 100%);
+
+  /* Module-type accent colours */
+  --motion:  #1A5FB4;
+  --speech:  #E8A000;
+  --signal:  #5E3373;
+  --ml:      #A82030;
+  --viz:     #C07800;
+  --multi:   #666666;
+
+  /* Surfaces — light mode */
+  --s:  #ffffff;   /* base surface      */
+  --s2: #f5f5f5;   /* raised surface    */
+  --s3: #ebebeb;   /* inset surface     */
+  --t:  #1a1a1a;   /* primary text      */
+  --tm: #666666;   /* muted text        */
+  --b:  #e0e0e0;   /* border            */
+
+  /* Component-specific */
+  --topbar:  #1a1a1a;      /* topbar background (colour) */
+  --topbar-h: 64px;        /* topbar height   (length)  */
+  --focus:   #1A5FB4;
+  --action-bg:    #1a1a1a;
+  --action-fg:    #ffffff;
+  --action-hover: #333333;
+
+  /* ── Spacing scale ── */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  24px;
+  --sp-6:  32px;
+  --sp-7:  48px;
+  --sp-8:  64px;
+  --sp-9:  96px;
+
+  /* ── Type scale ── */
+  --text-2xs: .6rem;
+  --text-xs:  .68rem;
+  --text-sm:  .78rem;
+  --text-base: clamp(.88rem, .7vw, 1rem);
+  --text-md:  clamp(1rem, .8vw, 1.1rem);
+  --text-lg:  clamp(1.1rem, 1.2vw, 1.4rem);
+  --text-xl:  clamp(1.4rem, 2.5vw, 2rem);
+  --text-2xl: clamp(1.8rem, 3.5vw, 2.8rem);
+
+  /* ── Layout ── */
+  --mw:       1280px;                    /* max-width: wide grids (browse, index) */
+  --mw-text:  1000px;                    /* max-width: text-heavy sections (about, community) */
+  --mw-wide:  1560px;                    /* max-width: shell layouts with a rail */
+  --rail-w:    240px;                    /* the rail in a two-panel layout   */
+  --mw-narrow: 700px;                    /* max-width: hero prose, narrow CTA blocks */
+  --mw-tight: 560px;                     /* max-width: centred measure — CTA copy,
+                                            standfirsts, a heading meant to wrap.
+                                            Existed on six pages as 520/540/560/600;
+                                            one value so the eye reads one column. */
+  --px: clamp(20px, 5vw, 72px);          /* horizontal page padding */
+  --py: clamp(40px, 5vw, 64px);          /* vertical section padding */
+
+  /* ── Radius ── */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-xl: 20px;
+
+  /* ── Long-name aliases (learn.html / graph.html convention) ── */
+  --surface:        var(--s);
+  --surface-2:      var(--s2);
+  --surface-3:      var(--s3);
+  --text:           var(--t);
+  --text-muted:     var(--tm);
+  --border:         var(--b);
+  --border-strong:  #c0c0c0;
+  --action-bg:      var(--a, #1a1a1a);
+  --action-fg:      var(--af, #ffffff);
+  --action-hover:   var(--ah, #333333);
+  --focus:          var(--blue);
+
+  /* ── Brand-prefixed aliases (learn.html convention) ── */
+  /* Exact values read from the vector fills on page 3 of the VI PDF.
+     These are the identity. They are intentionally NOT wired into the
+     functional tokens (--blue, --red, --yellow ...), which do interface jobs
+     and are tuned for contrast. Use brand colours where identity is the
+     point: the logo, the brand bar, an occasional highlight. */
+  --brand-black:    #241F21;
+  --brand-gray:     #59595C;
+  --brand-blue:     #0061B0;
+  --brand-purple:   #75406B;
+  --brand-red:      #ED1C24;
+  --brand-yellow:   #FFDE17;
+  --brand-gradient: var(--grad);
+  /* Note: orange is NOT a brand colour. It exists only as the red-to-yellow
+     transition inside the ramp. --orange below is a functional UI token. */
+
+  /* ── Topbar alias ── */
+  --topbar-bg:      var(--topbar);
+  --topbar-border:  #000000;
+
+  /* ── Visual panel (track/module hero image) ── */
+  --visual-w:      clamp(180px, 22vw, 280px);
+  --visual-aspect: 4 / 3;
+
+  /* ── Status / badge colours ── */
+  --green:          #2a7a4a;
+  --green-bg:       #0d2e1e;
+  --green-text:     #3daa68;
+  --stim:           #4a4a4a;   /* Stimuli creation — darker than #666 for WCAG AA */
+}
+
+/* ── DARK MODE ──────────────────────────────────────────────────── */
+[data-theme="dark"] {
+    --card:        #202020;
+    --link:        #4D9BE0;   /* 5.87 on --s, 5.49 on --card */
+    --link-hover:  #7FC0F5;
+    --accent-soft: #10283d;
+    --accent-line: #24486b;
+    --on-accent:   #0d1620;
+    /* Base hues, lightened for dark surfaces. Without these, anything using
+       var(--blue) for a link sits at 2.77 against --s and fails AA. */
+    --blue:   #4D9BE0;   /* 5.87 on --s */
+    --red:    #F1636B;   /* 5.58 on --s */
+    --orange: #FF9F45;   /* 8.53 on --s */
+    /* --yellow needs no change: #FFD000 is 11.83 on --s */
+    --lvl1-bg: #12271b; --lvl1-line: #24503a; --lvl1-fg: #5fc98a;
+    --lvl2-bg: #2a2212; --lvl2-line: #54441f; --lvl2-fg: #e0b45c;
+    --lvl3-bg: #2b1616; --lvl3-line: #572a2a; --lvl3-fg: #f08a8a;
+  --s:  #1a1a1a;
+  --s2: #232323;
+  --s3: #2d2d2d;
+  --t:  #f0f0f0;
+  --tm: #999999;
+  --b:  #333333;
+  --border-strong: #4a4a4a;
+  --action-bg:    #f0f0f0;
+  --action-fg:    #1a1a1a;
+  --action-hover: #d8d8d8;
+  --motion:  #3a7FD4;
+  --speech:  #FFD000;
+  --signal:  #8B5DA8;
+  --ml:      #C84050;
+  --viz:     #FFA500;
+  --multi:   #909090;
+  /* Green tokens — slightly brighter in dark mode */
+  --green-bg:   #0a2a1a;
+  --green-text: #4dbb78;
+  --stim:       #888888;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --s: #1a1a1a; --s2: #232323; --s3: #2d2d2d;
+    --t: #f0f0f0; --tm: #999999; --b:  #333333;
+    --action-bg: #f0f0f0; --action-fg: #1a1a1a; --action-hover: #d8d8d8;
+    --motion: #3a7FD4; --speech: #FFD000; --signal: #8B5DA8; --ml: #C84050;
+  }
+}
+
+/* ── BASE ───────────────────────────────────────────────────────── */
+html, body {
+  font-family: 'Nunito', system-ui, sans-serif;
+  background: var(--s);
+  color: var(--t);
+  line-height: 1.6;
+}
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+a { color: inherit; text-decoration: none; }
+
+/* ── TOPBAR (56px — used on every page) ────────────────────────── */
+.topbar {
+  height: var(--topbar-h);
+  background: var(--topbar);
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0 32px 0 0;   /* the logo block carries the left inset */
+  border-bottom: 1px solid #000;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Logo mark + wordmark */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: .2px;
+  white-space: nowrap;
+  padding: 0 24px 0 20px;
+  height: 100%;
+
+  flex-shrink: 0;
+  /* The divider closing this block and the border down a filter rail
+     read as one continuous line, so the block is sized to --rail-w
+     rather than to its text. Pages without a rail keep the same line,
+     so every top bar starts identically. */
+  width: var(--rail-w);
+  box-sizing: border-box;
+}
+.logo-mark { width: 46px; height: 46px; flex-shrink: 0; }
+.logo-word { font-weight: 400; letter-spacing: .3px; font-size: 1.15rem; }
+.logo-word strong { font-weight: 800; }
+
+/* -- the left rail ------------------------------------------------------
+   Filters on Browse, steps on Learn, controls on Graph. Its border and the
+   divider closing the logo block form one continuous vertical line, so both
+   are sized from --rail-w and no page sets a width of its own. */
+.rail {
+  width: var(--rail-w);
+  box-sizing: border-box;
+  background: var(--s2);
+  border-right: 1px solid var(--b);
+  padding: 22px 14px 34px;
+  position: sticky;
+  top: var(--topbar-h);
+  align-self: start;
+  height: calc(100vh - var(--topbar-h));
+  overflow-y: auto;
+}
+
+/* a rail on the other side - the notebook reader puts its contents there */
+.rail-right {
+  border-right: 0;
+  border-left: 1px solid var(--b);
+}
+
+/* the two-panel page: rail plus everything else. Pages used to spell this
+   out, which is where the 288px and 260px rails came from. */
+/* -- hero prose ---------------------------------------------------------
+   The headline above this centres; the prose does not. A centred paragraph
+   has a ragged left edge, which reads as deliberate for one line and costs
+   the reader the line start at four or five. The block stays centred. */
+.lede {
+  max-width: var(--mw-tight);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.layout-rail {
+  display: grid;
+  grid-template-columns: var(--rail-w) minmax(0, 1fr);
+}
+.logo-sub  { font-weight: 400; opacity: .7; font-size: .85rem; }
+
+/* Site nav (right side of topbar)
+ * Canonical class: .topbar-nav  |  Legacy alias: .nav
+ */
+.topbar-nav, .nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  padding-right: 8px;
+}
+.topbar-nav a, .nav a {
+  color: #c0c0c0;
+  font-size: .8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--r-sm);
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+.topbar-nav a:hover,  .nav a:hover  { color: #fff; background: #2a2a2a; }
+.topbar-nav a.active, .nav a.cur    { color: #fff; background: #2a2a2a; }
+
+/* Divider  |  .topbar-divider = canonical, .nd = legacy */
+.topbar-divider, .nd { width: 1px; height: 20px; background: #2a2a2a; flex-shrink: 0; margin: 0 4px; }
+
+/* Theme toggle  |  .theme-btn = canonical, .tbtn = legacy */
+.theme-btn, .tbtn {
+  background: none;
+  border: 1px solid #3a3a3a;
+  color: #aaa;
+  font-size: .85rem;
+  width: 30px; height: 30px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .15s, color .15s;
+  flex-shrink: 0;
+  margin: 0 6px;
+}
+.theme-btn:hover, .tbtn:hover { border-color: #888; color: #fff; }
+.theme-btn:focus-visible, .tbtn:focus-visible {
+  outline: 2px solid var(--brand-yellow); outline-offset: 2px; }
+/* holds a pictogram now rather than a sun/moon glyph */
+.theme-btn .ico, .tbtn .ico { width: 17px; height: 17px; vertical-align: 0; }
+
+/* Brand gradient bar  |  .brand-bar = canonical, .bbar = legacy */
+.brand-bar, .bbar { height: 3px; background: var(--grad); flex-shrink: 0; }
+
+/* ── CHIPS / TAGS ───────────────────────────────────────────────── */
+/* Generic chip — monospace label */
+.chip {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: var(--r-sm);
+  background: var(--s3);
+  color: var(--tm);
+  white-space: nowrap;
+  display: inline-block;
+}
+/* On dark topbar */
+.chip-dark        { background: #2a2a2a; color: #ccc; }
+/* Tag type */
+.chip-tag         { background: #1a3a6a; color: #7ab3f5; }
+/* Difficulty — muted tints, legible but not garish */
+.chip-beginner    { background: #0d2e1e; color: #3daa68; }
+.chip-intermediate{ background: #2e1e00; color: #c07830; }
+.chip-advanced    { background: #2e0a0a; color: #b85858; }
+
+/* IO chips (monospace, in data flow rows) */
+.io-chip {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: var(--r-sm);
+  background: var(--s3);
+  color: var(--t);
+}
+.io-arrow { color: var(--tm); opacity: .5; font-size: .75rem; }
+
+/* Eyebrow label (SECTION TITLE in small caps) */
+.eyebrow {
+  font-size: var(--text-2xs);
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--tm);
+}
+
+/* ── BUTTONS ────────────────────────────────────────────────────── */
+/* Primary action */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--action-bg);
+  color: var(--action-fg);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: var(--text-sm);
+  padding: 9px 18px;
+  border-radius: var(--r-md);
+  border: none;
+  cursor: pointer;
+  transition: background .15s;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.btn:hover { background: var(--action-hover); }
+
+/* Ghost button (on light bg) */
+.btn-ghost {
+  background: none;
+  border: 1px solid var(--b);
+  color: var(--tm);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: var(--text-xs);
+  padding: 5px 12px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: border-color .15s, color .15s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+}
+.btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+
+/* Ghost on dark topbar */
+.btn-ghost-dark {
+  background: none;
+  border: 1px solid #3a3a3a;
+  color: #aaa;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: var(--text-xs);
+  padding: 5px 12px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: border-color .15s, color .15s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+}
+.btn-ghost-dark:hover { border-color: #888; color: #fff; }
+
+/* ── PAGE-VISUAL ────────────────────────────────────────────────── */
+/*
+ * The visual panel that sits beside a section header.
+ * Use on every page where text + image appear side by side.
+ * Guarantees same ratio, size range, and border treatment everywhere.
+ */
+.page-visual {
+  width: var(--visual-w);
+  aspect-ratio: var(--visual-aspect);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--b);
+  background: var(--s2);
+}
+.page-visual img,
+.page-visual svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ── SECTION CONTAINER ──────────────────────────────────────────── */
+/* Use .container to constrain max-width and center content */
+.container {
+  max-width: var(--mw);
+  margin: 0 auto;
+  padding-left: var(--px);
+  padding-right: var(--px);
+}
+
+/* ── CARD ───────────────────────────────────────────────────────── */
+.card {
+  border: 1.5px solid var(--b);
+  border-radius: var(--r-lg);
+  background: var(--s);
+  overflow: hidden;
+  transition: border-color .15s, box-shadow .15s;
+}
+.card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.07); }
+
+/* ── FOOTER ─────────────────────────────────────────────────────── */
+/*
+ * Two footer patterns in use across the site:
+ *
+ * Pattern A — dark footer (.footer + .fi/.fl/.fn/.fc):
+ *   Used by: index, browse, about, community, hub
+ *   Background: #1a1a1a (always dark, not theme-aware)
+ *
+ * Pattern B — light footer (.footer + .footer-inner/.footer-logo/.footer-links):
+ *   Defined here for future standardisation — currently unused by pages.
+ */
+
+/* Pattern A — dark footer (canonical) */
+.footer        { background: #1a1a1a; color: #777777; padding: var(--sp-5) var(--px); }
+.fi            { max-width: var(--mw); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+.fi-text       { max-width: var(--mw-text); } /* narrow variant used by about/community */
+.fl            { font-weight: 800; color: #ffffff; font-size: .88rem; }
+.fn            { display: flex; gap: 18px; flex-wrap: wrap; }
+.fn a          { font-size: .75rem; color: #777777; transition: color .15s; }
+.fn a:hover    { color: #ffffff; }
+.fc            { font-size: .7rem; color: var(--tm); }
+
+/* Pattern B — light footer (design-system standard) */
+.footer-inner  { max-width: var(--mw); margin: 0 auto; display: flex; align-items: center; gap: var(--sp-5); flex-wrap: wrap; }
+.footer-logo   { font-weight: 800; font-size: .85rem; color: var(--tm); }
+.footer-links  { display: flex; gap: var(--sp-4); flex-wrap: wrap; margin-left: auto; }
+.footer-links a          { font-size: var(--text-xs); color: var(--tm); transition: color .15s; }
+.footer-links a:hover    { color: var(--t); }
+
+/* ── LOGO SVG MARK (inline, reused across pages) ────────────────── */
+/*
+  Always use this SVG for the logo mark — identical across every page.
+  <svg class="logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+    <defs>
+      <radialGradient id="lg" cx="50%" cy="50%" r="50%">
+        <stop offset="0%"   stop-color="#1A5FB4"/>
+        <stop offset="40%"  stop-color="#CC1111"/>
+        <stop offset="75%"  stop-color="#FF7800"/>
+        <stop offset="100%" stop-color="#FFD000"/>
+      </radialGradient>
+    </defs>
+    <polygon points="20,2 38,20 20,38 2,20" fill="url(#lg)"/>
+    <circle cx="20" cy="20" r="5" fill="#1a1a1a"/>
+    <circle cx="20" cy="20" r="2.5" fill="#fff" opacity=".9"/>
+  </svg>
+*/
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .topbar-nav a:not(.active), .nav a:not(.cur) { display: none; }
+  .topbar-nav .topbar-divider, .nav .nd { display: none; }
+  .page-visual { display: none; }
+}
+
+/* ── MICRO ASSISTANT ──────────────────────────────────────────────────
+   A persistent launcher, bottom right. Never opens by itself. */
+.ax { position: fixed; right: 20px; bottom: 20px; z-index: 900; }
+
+.ax-btn {
+  display: flex; align-items: center; gap: 0;
+  background: var(--card); color: var(--t);
+  border: 1.5px solid var(--b); border-radius: 30px;
+  padding: 9px; font: inherit; font-size: .86rem; font-weight: 800;
+  cursor: pointer; box-shadow: 0 3px 12px rgba(20,30,40,.12);
+  opacity: .72;
+  transition: gap .18s ease, padding .18s ease, opacity .18s ease,
+              border-color .18s ease, box-shadow .18s ease;
+}
+.ax-btn img { width: 26px; height: 26px; flex: none; }
+
+/* Collapsed to the mark until wanted. The label is width-animated rather
+   than display-toggled so it stays in the accessibility tree — a screen
+   reader still reads "What can I run?" while it is visually collapsed. */
+.ax-btn-t {
+  max-width: 0; overflow: hidden; white-space: nowrap; opacity: 0;
+  transition: max-width .22s ease, opacity .18s ease;
+}
+.ax-btn:hover, .ax-btn:focus-visible, .ax-btn[aria-expanded="true"] {
+  gap: 9px; padding: 9px 17px 9px 10px; opacity: 1;
+  border-color: var(--link); box-shadow: 0 4px 16px rgba(20,30,40,.18);
+}
+.ax-btn:hover .ax-btn-t,
+.ax-btn:focus-visible .ax-btn-t,
+.ax-btn[aria-expanded="true"] .ax-btn-t { max-width: 11em; opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ax-btn, .ax-btn-t { transition: none; }
+}
+/* Touch has no hover, so keep the label visible there. */
+@media (hover: none) {
+  .ax-btn { gap: 9px; padding: 9px 17px 9px 10px; opacity: 1; }
+  .ax-btn-t { max-width: 11em; opacity: 1; }
+}
+@media (max-width: 560px) {
+  .ax-btn { gap: 0; padding: 10px; }
+  .ax-btn-t { max-width: 0; opacity: 0; }
+}
+
+.ax-panel {
+  position: absolute; right: 0; bottom: calc(100% + 10px); width: 330px;
+  max-height: min(70vh, 560px); overflow-y: auto;
+  background: var(--card); border: 1px solid var(--accent-line);
+  border-radius: 12px; box-shadow: 0 14px 40px rgba(20,30,40,.22);
+}
+.ax-panel[hidden] { display: none; }
+.ax-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px 10px; border-bottom: 1px solid var(--b); font-size: .95rem;
+}
+.ax-x { background: none; border: 0; font-size: 1.3rem; line-height: 1;
+        color: var(--tm); cursor: pointer; padding: 0 2px; }
+.ax-x:hover { color: var(--t); }
+.ax-body { padding: 14px 16px 16px; }
+
+.ax-q { margin-bottom: 14px; }
+.ax-k { font-size: .68rem; text-transform: uppercase; letter-spacing: .08em;
+        font-weight: 800; color: var(--tm); margin: 0 0 7px; }
+.ax-opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.ax-o { font: inherit; font-size: .78rem; background: var(--s2); color: var(--t);
+        border: 1px solid var(--b); border-radius: 20px; padding: 5px 12px; cursor: pointer; }
+.ax-o:hover { border-color: var(--link); }
+.ax-o.on { background: var(--link); border-color: var(--link); color: var(--on-accent);
+           font-weight: 800; }
+.ax-o.ax-any { background: none; color: var(--tm); border-style: dashed; }
+
+.ax-res { border-top: 1px solid var(--b); padding-top: 13px; margin-top: 4px; }
+.ax-m { display: block; border: 1px solid var(--b); border-radius: 8px;
+        padding: 10px 12px; margin-bottom: 7px; text-decoration: none; background: var(--s2); }
+.ax-m:hover { border-color: var(--link); }
+.ax-mt { display: block; font-size: .84rem; font-weight: 700; color: var(--t);
+         line-height: 1.35; margin-bottom: 3px; }
+.ax-mf { display: block; font-size: .72rem; color: var(--tm); }
+.ax-none { font-size: .82rem; color: var(--tm); margin: 0 0 8px; }
+.ax-all { font-size: .78rem; font-weight: 800; color: var(--link); text-decoration: none; }
+
+.ax-foot { font-size: .72rem; line-height: 1.55; color: var(--tm);
+           border-top: 1px solid var(--b); margin: 14px 0 0; padding-top: 11px; }
+.ax-foot code { font-family: 'IBM Plex Mono', monospace; font-size: .95em;
+                background: var(--s2); border: 1px solid var(--b);
+                border-radius: 4px; padding: 1px 5px; }
+
+/* ── LEARN VIEW SWITCHER ──────────────────────────────────────────────
+   Modules and Tracks are two ways through the same 33 modules — a list
+   and a path — so they live under one nav entry and switch here. */
+.lv { display: inline-flex; border: 1px solid var(--b); border-radius: 22px;
+      padding: 3px; background: var(--s2); margin-bottom: 18px; }
+.lv a { font-size: .82rem; font-weight: 800; padding: 6px 16px; border-radius: 18px;
+        text-decoration: none; color: var(--tm); white-space: nowrap; }
+.lv a:hover { color: var(--t); }
+.lv a[aria-current="page"] { background: var(--card); color: var(--t);
+        box-shadow: 0 1px 3px rgba(20,30,40,.12); }
+
+/* ── PICTOGRAMS ───────────────────────────────────────────────────────
+   Drawn on Carbon's conventions: 32x32 grid, geometric, filled paths,
+   one weight. They take currentColor, so they theme automatically and
+   inherit the colour of whatever they sit beside.
+
+     <svg class="ico" aria-hidden="true"><use href="icons.svg#i-time"/></svg>
+
+   Always aria-hidden — an icon next to a label is decoration. Where one
+   stands alone, name the control instead. Emoji are not a substitute:
+   they render differently on every platform and cannot take brand colour. */
+.ico { width: 20px; height: 20px; fill: currentColor; flex: none;
+       vertical-align: -.22em; }
+.ico-sm { width: 16px; height: 16px; vertical-align: -.18em; }
+.ico-lg { width: 28px; height: 28px; vertical-align: -.3em; }
+.ico-xl { width: 40px; height: 40px; }
+
+
+/* ── LAYOUTS ──────────────────────────────────────────────────────────
+   The four layouts documented in grid_guide.html, as actual classes.
+
+   They were written down but never expressed in code, so every new page
+   picked its own alignment and gutter. That produced five different left
+   edges across the site and two alignment models running side by side.
+
+   Put one of these on <main> (or the page wrapper). Do not invent a fifth.
+
+     .layout-a   wide grid    — centred hero, wide card grid below
+     .layout-b   text content — long-form reading, one centred column
+     .layout-c   tabbed       — text content with a tab strip
+     .layout-d   two-panel    — a rail plus a content pane
+
+   Layouts A, B and C centre. D aligns to its rail. Nothing mixes the two. */
+
+.layout-a > .band,
+.layout-b > .band,
+.layout-c > .band { margin-inline: auto; padding-inline: var(--px); }
+
+/* A — wide grid: the hero is narrow and centred, the grid below is wide */
+.layout-a > .band          { max-width: var(--mw); }
+.layout-a > .band-hero     { max-width: var(--mw-narrow); text-align: center; }
+
+/* B — text content: one readable column, hero narrower still */
+.layout-b > .band          { max-width: var(--mw-text); }
+.layout-b > .band-hero     { max-width: var(--mw-narrow); }
+
+/* C — tabbed: as B, with room for the tab strip */
+.layout-c > .band          { max-width: var(--mw-text); }
+
+/* D — two-panel: the rail sets the left edge, content follows it.
+   Never centred — centring content beside a rail makes the left edge
+   move as the viewport changes, which is what looked "all over the place". */
+.layout-d { display: grid; grid-template-columns: var(--rail-w) minmax(0, 1fr);
+            align-items: start; }
+.layout-d > .pane          { min-width: 0; padding: var(--sp-6) var(--px); }
+.layout-d > .pane > .band  { max-width: var(--mw-wide); margin-inline: 0; }
+@media (max-width: 900px) { .layout-d { grid-template-columns: 1fr; } }
+
+/* -- rendered notebook --------------------------------------------------
+   notebook_clean.py writes a fragment with no styles of its own, so that
+   the host page decides how it looks and light and dark both work. These
+   are those styles. They live here rather than on a reader page because
+   more than one page renders a module. */
+.nb-prose{max-width:46em;margin:0 0 20px;line-height:1.7;font-size:.97rem}
+.nb-prose h1{font-size:1.6rem;margin:36px 0 12px;line-height:1.25}
+.nb-prose h2{font-size:1.25rem;margin:32px 0 10px}
+.nb-prose h3{font-size:1.05rem;margin:26px 0 8px}
+.nb-prose p{margin:0 0 14px}
+.nb-prose ul,.nb-prose ol{margin:0 0 14px;padding-left:22px}
+.nb-prose li{margin-bottom:5px}
+.nb-prose a{color:var(--link);text-decoration:underline;text-underline-offset:2px}
+.nb-prose code{font-family:'IBM Plex Mono',monospace;font-size:.86em;
+             background:var(--s2);border:1px solid var(--b);border-radius:4px;padding:1px 5px}
+.nb-prose img{max-width:100%;height:auto;border-radius:8px;display:block;margin:16px 0}
+.nb-prose blockquote{margin:0 0 14px;padding:10px 16px;border-left:3px solid var(--brand-yellow);
+                   background:var(--s2);border-radius:0 6px 6px 0}
+
+/* code cells */
+.nb-code{font-family:'IBM Plex Mono',monospace;font-size:.82rem;line-height:1.62;
+       background:var(--s2);border:1px solid var(--b);border-left:3px solid var(--link);
+       border-radius:6px;padding:14px 16px;margin:0 0 16px;overflow-x:auto;
+       white-space:pre;color:var(--t)}
+.nb-code code{background:none;border:0;padding:0;font:inherit}
+
+/* outputs */
+.nb-out{margin:0 0 20px}
+.nb-out-text{font-family:'IBM Plex Mono',monospace;font-size:.78rem;line-height:1.6;
+           background:transparent;border:1px dashed var(--b);border-radius:6px;
+           padding:12px 14px;overflow-x:auto;white-space:pre-wrap;color:var(--tm)}
+.nb-out-rich img,.nb-out-rich video{max-width:100%;height:auto;border-radius:8px;
+           border:1px solid var(--b);display:block;background:var(--s2)}
+.nb-out-rich table{border-collapse:collapse;font-size:.82rem;width:auto;max-width:100%;
+           display:block;overflow-x:auto}
+.nb-out-rich th,.nb-out-rich td{border:1px solid var(--b);padding:6px 10px;text-align:left}
+.nb-out-rich th{background:var(--s2);font-weight:800}
+
+/* the pane a fetched module fragment is injected into */
+.nb-body {
+  padding: 28px var(--px) var(--sp-8);
+  overflow-y: auto;
+  min-width: 0;
+}
+.nb-loading,
+.nb-missing {
+  color: var(--tm);
+  font-size: .92rem;
+  max-width: var(--mw-tight);
+}
+.nb-missing h2 {
+  font-size: 1.1rem;
+  color: var(--t);
+  margin: 0 0 10px;
+}
+.nb-missing a { color: var(--link); }
+
+/* a connection is a meta row that happens to be a link */
+/* A connection is a module title and how it relates to this one. It was
+   built from the two-column meta row used for "Authors / Wim Pouw", which
+   works for a short pair and not for these: "Multi-Camera Synchronous
+   Recording" against "Prerequisite - multi-camera setup" left both columns
+   wrapping over three lines beside each other. They stack instead. */
+a.ctx-conn {
+  display: block;
+  text-decoration: none;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--b);
+}
+a.ctx-conn:last-child { border-bottom: 0; }
+
+.ctx-conn-title {
+  display: block;
+  font-size: .78rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--t);
+}
+.ctx-conn-rel {
+  display: block;
+  margin-top: 2px;
+  font-size: .7rem;
+  line-height: 1.4;
+  color: var(--tm);
+}
+a.ctx-conn:hover .ctx-conn-title { color: var(--link); }
+
+/* ── SPHERE PAGES ─────────────────────────────────────────────────────
+   One sphere, one page, four of them. Nine pages in this site each
+   declare their own .hero and six their own .cta, so these are here to
+   stop the sphere pages adding four more copies. The shapes follow
+   about.html, which is the version the hero settled on. Existing local
+   copies still win on their own pages; they can be deleted later with
+   no visual change.
+
+   A sphere page carries an accent on data-sphere. The accents are brand
+   stops, not new colours, and they mean something: red is the sphere
+   under the strictest protection, grey the one with nothing to protect.
+   Contrast is only sound for rules, icons and large text - never body
+   copy, so --sph is not used for that. */
+:root {
+  --sph: var(--brand-blue);
+}
+[data-sphere="human"]    { --sph: var(--brand-blue); }
+[data-sphere="bio"]      { --sph: var(--brand-purple); }
+[data-sphere="baby"]     { --sph: var(--brand-red); }
+[data-sphere="machines"] { --sph: var(--brand-gray); }
+
+.hero {
+  background: var(--s2);
+  border-bottom: 1px solid var(--b);
+  padding: var(--py) var(--px);
+}
+.hero-in { max-width: var(--mw-narrow); margin: 0 auto; }
+.hero h1 {
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.hero p { font-size: 1rem; color: var(--tm); }
+.hero-mark { display: block; margin-bottom: 18px; color: var(--sph); }
+
+/* a band is one horizontal section; .band-tint sets it off from its
+   neighbours without changing the column it shares with them */
+.band { border-top: 1px solid var(--b); padding: var(--sp-7) var(--px); }
+.band-in { max-width: var(--mw-text); margin: 0 auto; }
+.band-tint { background: var(--s2); }
+.band h2 { font-size: 1.15rem; font-weight: 800; margin-bottom: 10px; }
+.band-lede {
+  font-size: .9rem;
+  color: var(--tm);
+  line-height: 1.7;
+  max-width: 62ch;
+}
+
+/* the honest numbers. A sphere page leads with how little is known, so
+   these read as a status report and not as an achievement. */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1px;
+  margin-top: 22px;
+  background: var(--b);
+  border: 1px solid var(--b);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.stat { background: var(--s); padding: 16px 18px; }
+.stat-n {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--sph);
+}
+.stat-l {
+  display: block;
+  margin-top: 4px;
+  font-size: .72rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--tm);
+}
+
+.feat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.feat {
+  border: 1px solid var(--b);
+  border-radius: var(--r-md);
+  padding: 20px;
+  background: var(--s);
+}
+.feat-title { font-weight: 800; font-size: .92rem; margin-bottom: 6px; }
+.feat-desc { font-size: .82rem; color: var(--tm); line-height: 1.6; }
+.feat-icon { display: block; margin-bottom: 12px; color: var(--sph); }
+
+/* an open question is the unit of work a contributor can pick up, so it
+   is listed as one: the method it belongs to, then the question */
+.qlist { margin-top: 22px; border-top: 1px solid var(--b); }
+.q {
+  display: grid;
+  grid-template-columns: minmax(140px, 200px) 1fr;
+  gap: 18px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--b);
+}
+.q-mod { font-size: .78rem; font-weight: 700; line-height: 1.4; }
+.q-text { font-size: .84rem; color: var(--tm); line-height: 1.6; }
+@media (max-width: 640px) {
+  .q { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* evidence grade, as a chip, because a reader has to be able to discount
+   a cell that rests on nobody having measured it */
+.chip-benchmark { background: var(--green-bg); color: var(--green-text); }
+.chip-publication { background: var(--green-bg); color: var(--green-text); }
+.chip-module { background: var(--s2); color: var(--tm); }
+.chip-judgement { background: var(--s2); color: var(--tm); font-style: italic; }
+
+.cta { background: var(--s2); border-top: 1px solid var(--b); padding: var(--sp-7) var(--px); }
+.cta-in { max-width: var(--mw-tight); margin: 0 auto; text-align: center; }
+.cta h2 { font-size: 1.35rem; font-weight: 900; margin-bottom: 12px; }
+.cta p { font-size: .9rem; color: var(--tm); line-height: 1.65; margin-bottom: 22px; }
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.cta .btn-row { justify-content: center; }
