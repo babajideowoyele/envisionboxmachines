@@ -252,8 +252,16 @@ a { color: inherit; text-decoration: none; }
   box-sizing: border-box;
 }
 .logo-mark { width: 46px; height: 46px; flex-shrink: 0; }
-.logo-word { font-weight: 400; letter-spacing: .3px; font-size: 1.15rem; }
-.logo-word strong { font-weight: 800; }
+/* the wordmark is the official lettering, outlined, from the sprite. It
+   takes the bar's colour, so it is white here and dark anywhere light. */
+.logo-word {
+  display: block;
+  height: 30px;
+  width: auto;
+  aspect-ratio: 189.2 / 87;
+  fill: currentColor;
+  stroke: none;
+}
 
 /* -- the left rail ------------------------------------------------------
    Filters on Browse, steps on Learn, controls on Graph. Its border and the
@@ -910,3 +918,15 @@ a.ctx-conn:hover .ctx-conn-title { color: var(--link); }
 .cta p { font-size: .9rem; color: var(--tm); line-height: 1.65; margin-bottom: 22px; }
 .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
 .cta .btn-row { justify-content: center; }
+
+/* ── THE LOCKUP ───────────────────────────────────────────────────────
+   The logo as designed: mark with the lettering running up the diagonal.
+   It needs room, so it sits in heroes and footers and not in the 64px bar,
+   where the mark and the horizontal lettering stand in for it. Two
+   rasters, grey lettering for light surfaces and white for dark, switched
+   by theme; the footer is dark in both themes and takes the white one. */
+.hero-lockup   { display: block; height: 150px; width: auto; margin: 0 auto 26px; }
+.footer-lockup { display: block; height: 52px;  width: auto; }
+.lockup-dark   { display: none; }
+html[data-theme="dark"] .hero-lockup.lockup-light { display: none; }
+html[data-theme="dark"] .hero-lockup.lockup-dark  { display: block; }
