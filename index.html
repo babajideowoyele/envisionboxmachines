@@ -120,6 +120,67 @@
       </div>
     </div>
   </section>
+  <section class="band band-tint" id="workpackages">
+    <div class="band-in">
+      <h2>Work packages</h2>
+      <p class="band-lede">What it takes to move from tools to platform (Gate A) and from platform to infrastructure (Gate B). Each is specific, measurable, achievable, relevant and time-bound. Partners marked &quot;to confirm&quot; have not yet been asked.</p>
+      <div class="wp-wrap">
+        <table class="wp">
+          <thead><tr><th scope="col">Work package</th><th scope="col"><abbr title="Specific">S</abbr>pecific</th><th scope="col"><abbr title="Measurable">M</abbr>easurable</th><th scope="col"><abbr title="Achievable">A</abbr>chievable</th><th scope="col"><abbr title="Relevant">R</abbr>elevant</th><th scope="col"><abbr title="Time-bound">T</abbr>ime-bound</th></tr></thead>
+          <tbody>
+          <tr>
+            <th scope="row" data-l="Work package"><span class="wp-id"><svg class="ico wp-icon" aria-hidden="true"><use href="#i-tools"/></svg> WP1</span><span class="wp-name">Runnable machine modules</span><span class="wp-gate wp-gate-a">Gate A</span><span class="wp-move">Tools → Platform</span></th>
+            <td data-l="Specific">Publish three modules: feature extraction from a robot’s camera and microphone in the ROS4HRI format, a model-as-coder check, and coding of agent dyads with a human coding scheme. All run in Reachy Mini’s simulator.</td>
+            <td data-l="Measurable">3 modules pass their weekly test four weeks in a row, with no robot required.</td>
+            <td data-l="Achievable">EnvisionBOX team; Pollen Robotics community (to confirm).</td>
+            <td data-l="Relevant"><span class="wp-rel"><svg class="ico" aria-hidden="true"><use href="#i-loop"/></svg> Reproducibility</span><span class="wp-rel"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg> P1 Validity as a feature</span></td>
+            <td data-l="Time-bound"><span class="wp-due"><svg class="ico" aria-hidden="true"><use href="#i-time"/></svg> March 2027</span></td>
+          </tr>
+          <tr>
+            <th scope="row" data-l="Work package"><span class="wp-id"><svg class="ico wp-icon" aria-hidden="true"><use href="#i-data"/></svg> WP2</span><span class="wp-name">Model registry</span><span class="wp-gate wp-gate-a">Gate A</span><span class="wp-move">Tools → Platform</span></th>
+            <td data-l="Specific">A record for every model a module uses: training data, licence, consent, and AI Act status.</td>
+            <td data-l="Measurable">Every model used by a module (about 10) has a complete record.</td>
+            <td data-l="Achievable">EnvisionBOX team; record format based on the bioimage.io specification.</td>
+            <td data-l="Relevant"><span class="wp-rel"><svg class="ico" aria-hidden="true"><use href="#i-people"/></svg> Participation</span><span class="wp-rel"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg> P1 Validity as a feature</span></td>
+            <td data-l="Time-bound"><span class="wp-due"><svg class="ico" aria-hidden="true"><use href="#i-time"/></svg> June 2027</span></td>
+          </tr>
+          <tr>
+            <th scope="row" data-l="Work package"><span class="wp-id"><svg class="ico wp-icon" aria-hidden="true"><use href="#i-check"/></svg> WP3</span><span class="wp-name">Models checked against human coders</span><span class="wp-gate wp-gate-a">Gate A</span><span class="wp-move">Tools → Platform</span></th>
+            <td data-l="Specific">Every module that uses a model as a coder ships a human-coded subset and reports agreement against it.</td>
+            <td data-l="Measurable">Agreement reported for every model-as-coder module.</td>
+            <td data-l="Achievable">EnvisionBOX team.</td>
+            <td data-l="Relevant"><span class="wp-rel"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Validity</span><span class="wp-rel"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg> P1 Validity as a feature</span></td>
+            <td data-l="Time-bound"><span class="wp-due"><svg class="ico" aria-hidden="true"><use href="#i-time"/></svg> September 2027</span></td>
+          </tr>
+          <tr>
+            <th scope="row" data-l="Work package"><span class="wp-id"><svg class="ico wp-icon" aria-hidden="true"><use href="#i-search"/></svg> WP4</span><span class="wp-name">Claim-to-code audits</span><span class="wp-gate wp-gate-b">Gate B</span><span class="wp-move">Platform → Infrastructure</span></th>
+            <td data-l="Specific">Trace the claims of 30 Behavior Research Methods papers that share code to the code that produces them, following AuditOwl, with a CODECHECK certificate where a paper reproduces.</td>
+            <td data-l="Measurable">30 audits completed and sent to authors; report published.</td>
+            <td data-l="Achievable">EnvisionBOX with HPI and TU Delft (to confirm); Open Science NL replication funding (to apply).</td>
+            <td data-l="Relevant"><span class="wp-rel"><svg class="ico" aria-hidden="true"><use href="#i-loop"/></svg> Reproducibility</span><span class="wp-rel"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg> P3 Plurality by design</span></td>
+            <td data-l="Time-bound"><span class="wp-due"><svg class="ico" aria-hidden="true"><use href="#i-time"/></svg> December 2027</span></td>
+          </tr>
+          <tr>
+            <th scope="row" data-l="Work package"><span class="wp-id"><svg class="ico wp-icon" aria-hidden="true"><use href="#i-flow"/></svg> WP5</span><span class="wp-name">Run log</span><span class="wp-gate wp-gate-b">Gate B</span><span class="wp-move">Platform → Infrastructure</span></th>
+            <td data-l="Specific">Every module run writes a record of module, version, parameters, and fingerprints of inputs and outputs.</td>
+            <td data-l="Measurable">Run log live; one result re-run at a second site with matching fingerprints.</td>
+            <td data-l="Achievable">EnvisionBOX team with a second site (to confirm).</td>
+            <td data-l="Relevant"><span class="wp-rel"><svg class="ico" aria-hidden="true"><use href="#i-loop"/></svg> Reproducibility</span><span class="wp-rel"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg> P2 Keep the researcher observant</span></td>
+            <td data-l="Time-bound"><span class="wp-due"><svg class="ico" aria-hidden="true"><use href="#i-time"/></svg> March 2028</span></td>
+          </tr>
+          <tr>
+            <th scope="row" data-l="Work package"><span class="wp-id"><svg class="ico wp-icon" aria-hidden="true"><use href="#i-group"/></svg> WP6</span><span class="wp-name">Governance and the AI Act</span><span class="wp-gate wp-gate-b">Gate B</span><span class="wp-move">Platform → Infrastructure</span></th>
+            <td data-l="Specific">A written position on what the platform may distribute under the AI Act, and seats for HPI and TU Delft on the steering group.</td>
+            <td data-l="Measurable">Position published; steering group agreement signed.</td>
+            <td data-l="Achievable">EnvisionBOX consortium.</td>
+            <td data-l="Relevant"><span class="wp-rel"><svg class="ico" aria-hidden="true"><use href="#i-group"/></svg> Accessibility</span><span class="wp-rel"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg> P3 Plurality by design</span></td>
+            <td data-l="Time-bound"><span class="wp-due"><svg class="ico" aria-hidden="true"><use href="#i-time"/></svg> June 2028</span></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
   <section class="band band-tint" id="standing">
     <div class="band-in">
       <h2>Where this sphere stands</h2>

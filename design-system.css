@@ -984,3 +984,30 @@ a.feat:hover { border-color: var(--sph); }
   .gate { border: 0; border-left: 2px dashed var(--sph); padding: 8px 0 8px 14px; }
   .gate::after { content: "↓"; right: auto; left: -9px; top: auto; bottom: -16px; }
 }
+
+/* ── WORK PACKAGES: SMART table, stacked cards on narrow screens ─────── */
+.wp-wrap { margin-top: 22px; overflow-x: auto; }
+.wp { width: 100%; border-collapse: collapse; font-size: .82rem; line-height: 1.5; background: var(--s); border: 1px solid var(--b); border-radius: var(--r-lg, 12px); }
+.wp thead th { text-align: left; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--tm); padding: 12px; border-bottom: 2px solid var(--t); font-weight: 800; }
+.wp thead abbr { text-decoration: none; color: var(--sph); font-size: 1rem; font-weight: 900; }
+.wp td, .wp tbody th { padding: 14px 12px; vertical-align: top; border-bottom: 1px solid var(--b); text-align: left; }
+.wp tbody th { width: 17%; font-weight: 400; }
+.wp-id { display: flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: .78rem; color: var(--sph); }
+.wp-icon { width: 22px; height: 22px; }
+.wp-name { display: block; font-weight: 800; font-size: .92rem; margin: 4px 0 6px; color: var(--t); }
+.wp-gate { display: inline-block; font-size: .68rem; font-weight: 700; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--sph); color: var(--sph); }
+.wp-gate-b { background: var(--sph); color: #fff; }
+.wp-rel { display: flex; align-items: center; gap: 6px; white-space: nowrap; margin-bottom: 4px; }
+.wp-rel .ico, .wp-due .ico { width: 16px; height: 16px; color: var(--sph); flex: none; }
+.wp-due { display: flex; align-items: center; gap: 6px; font-weight: 800; white-space: nowrap; }
+@media (max-width: 860px) {
+  .wp, .wp tbody, .wp tr, .wp td, .wp tbody th { display: block; width: auto; }
+  .wp thead { display: none; }
+  .wp tr { border-bottom: 2px solid var(--b); padding: 8px 0; }
+  .wp td, .wp tbody th { border: 0; padding: 6px 14px; }
+  .wp td::before { content: attr(data-l); display: block; font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--sph); margin-bottom: 2px; }
+  .wp-rel { white-space: normal; }
+}
+#workpackages .band-in { max-width: var(--mw); }
+.wp-gate { white-space: nowrap; }
+.wp-move { display: block; margin-top: 4px; font-size: .72rem; color: var(--tm); }
