@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>EnvisionBOX &mdash; Machines sphere</title>
-  <meta name="description" content="A machine has no identity to protect, and neither does a rendered model. That makes this the only sphere where a method can be measured with nothing remove"/>
+  <meta name="description" content="Robots, models and agents are both things we study with behavioural methods and things we put inside behavioural research. Both carry people: the humans a "/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
@@ -31,13 +31,28 @@
 
   <section class="hero">
     <div class="hero-in">
-      
       <p class="eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-robot"/></svg> Machines sphere</p>
-      <h1>The sphere with nothing to hide</h1>
-      <p class="lede">A machine has no identity to protect, and neither does a rendered model. That makes this the only sphere where a method can be measured with nothing removed, which is what the other three get compared against.</p>
+      <h1>Machines as subjects, and as instruments</h1>
+      <p class="lede">Robots, models and agents are both things we study with behavioural methods and things we put inside behavioural research. Both carry people: the humans a robot records, the bodies a model learned from, the coder a model replaces.</p>
     </div>
   </section>
-  <section class="band">
+  <section class="band" id="what">
+    <div class="band-in">
+      <h2>What this sphere is</h2>
+      <p class="band-lede">Robots, models and agents, in two roles at once. The sphere asks two questions and applies the four pathways to both.</p>
+      <div class="feat-grid">
+        <div class="feat">
+          <div class="feat-title">How do we integrate them into behavioural research?</div>
+          <p class="feat-desc">Robots as interaction partners or confederates. Models as annotators and coders. Synthetic humans as stimuli. Models as simulated participants. Models as the instruments inside our own methods.</p>
+        </div>
+        <div class="feat">
+          <div class="feat-title">How do we study them with behavioural research?</div>
+          <p class="feat-desc">Robot and model behaviour measured with the methods used on people: turn-taking, gesture, gaze, synchrony, kinematics. Psychometrics applied to language models. Developmental robotics as a model of how infants learn.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="band band-tint" id="standing">
     <div class="band-in">
       <h2>Where this sphere stands</h2>
       <p class="band-lede">Counted from the sphere matrix, not estimated. A method can
@@ -51,10 +66,39 @@
       </div>
     </div>
   </section>
-  <section class="band band-tint">
+  <section class="band" id="pathways">
     <div class="band-in">
-      <h2>What the trade is here</h2>
-      <p class="band-lede">The identifying signal and the behavioural signal are the same pixels. What differs between spheres is how far they overlap.</p>
+      <h2>Four pathways</h2>
+      <p class="band-lede">Every sphere is built along the same four. Protection is assumed under all of them: masking, consent and data governance are the condition for a method to be listed, not a feature of the sphere.</p>
+      <div class="feat-grid path-grid">
+        <a class="feat" href="#participation">
+          <span class="feat-icon" aria-hidden="true"><svg class="ico ico-lg" aria-hidden="true"><use href="#i-people"/></svg></span>
+          <div class="feat-title">Participation</div>
+          <p class="feat-desc">On what terms do people take part?</p>
+        </a>
+        <a class="feat" href="#validity">
+          <span class="feat-icon" aria-hidden="true"><svg class="ico ico-lg" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <div class="feat-title">Validity</div>
+          <p class="feat-desc">Does the method measure what it claims, on this population?</p>
+        </a>
+        <a class="feat" href="#reproducibility">
+          <span class="feat-icon" aria-hidden="true"><svg class="ico ico-lg" aria-hidden="true"><use href="#i-loop"/></svg></span>
+          <div class="feat-title">Reproducibility</div>
+          <p class="feat-desc">Can someone else get the same result from the same inputs?</p>
+        </a>
+        <a class="feat" href="#accessibility">
+          <span class="feat-icon" aria-hidden="true"><svg class="ico ico-lg" aria-hidden="true"><use href="#i-group"/></svg></span>
+          <div class="feat-title">Accessibility</div>
+          <p class="feat-desc">Who can use it, who can contribute, who is left out?</p>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="band band-tint" id="participation">
+    <div class="band-in">
+      <p class="eyebrow">Pathway 1</p>
+      <h2><svg class="ico" aria-hidden="true"><use href="#i-people"/></svg> Participation</h2>
+      <p class="band-lede">A robot’s camera records the people around it, often bystanders who never consented. Its behaviour is generated from specific people’s bodies. Its logs can identify someone by gait. Provenance, meaning what a model learned from and under what consent, is this sphere’s form of masking.</p>
       <div class="feat-grid">
         <div class="feat">
           <span class="feat-icon" aria-hidden="true"><svg class="ico ico-lg" aria-hidden="true"><use href="#i-face"/></svg></span>
@@ -72,24 +116,28 @@
           <p class="feat-desc">There is no trade to make, which is what makes this sphere useful: it is the only one where a method can be measured with nothing hidden.</p>
         </div>
       </div>
+      <h3 class="needs-h">What this pathway needs</h3>
+      <ul class="needs">
+        <li>A consent and licence field on every dataset and model listed</li>
+        <li>A training-data summary for every model a module uses</li>
+        <li>De-identification as the default step in robot-view pipelines</li>
+        <li>Terms on which people contribute recordings or compute to model studies</li>
+      </ul>
     </div>
   </section>
-  <section class="band">
+  <section class="band" id="validity">
     <div class="band-in">
-      <h2>What is known so far</h2>
-      <p class="band-lede">Each row carries how it is known. Nothing in this sphere rests on a benchmark yet, so every grade below is weaker than a measurement and is labelled so you can discount it.</p>
+      <p class="eyebrow">Pathway 2</p>
+      <h2><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Validity</h2>
+      <p class="band-lede">As instruments: the pose, face and speech models every module runs on, and whether they hold for the population they are pointed at. As subjects: whether a behavioural measure means the same thing when the subject is a model.</p>
+      <h3 class="needs-h">Known so far, with how it is known</h3>
       <div class="qlist">
         <div class="q">
           <div class="q-mod">Full-body Tracking with MediaPipe<br><span class="chip chip-judgement">reasoning, unverified</span></div>
           <div class="q-text"><strong>not-applicable.</strong> A robot has no identity to protect, so nothing is masked and the method runs on an unmodified recording. That is what makes this sphere the control condition: utility measured here is the ceiling.</div>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="band band-tint">
-    <div class="band-in">
-      <h2>17 open questions</h2>
-      <p class="band-lede">Each one is bounded, attached to a named method, and answerable by one person with the right recordings. This is the work the sphere needs, written out rather than summarised.</p>
+      <h3 class="needs-h">17 open questions, one per method</h3>
       <div class="qlist">
         <div class="q">
           <div class="q-mod">3D Tracking with anipose and DeepLabCut</div>
@@ -160,14 +208,52 @@
           <div class="q-text">Does Video-Embedded Time Series Animations work on robot recordings, and what survives once the subjects are masked?</div>
         </div>
       </div>
+      <h3 class="needs-h">What this pathway needs</h3>
+      <ul class="needs">
+        <li>Model coders benchmarked against human coders</li>
+        <li>The same multimodal measures applied to robot and agent behaviour</li>
+        <li>Validity of psychometric tests when applied to language models</li>
+      </ul>
+    </div>
+  </section>
+  <section class="band band-tint" id="reproducibility">
+    <div class="band-in">
+      <p class="eyebrow">Pathway 3</p>
+      <h2><svg class="ico" aria-hidden="true"><use href="#i-loop"/></svg> Reproducibility</h2>
+      <p class="band-lede">Claim-to-code audits exist for machine learning but not for behaviour research. Model cards for robot policies name no training data. This pathway transposes the audit to behaviour methods papers and keeps a run log with output fingerprints.</p>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-n">0</span><span class="stat-l">modules with a pinned environment</span></div>
+        <div class="stat"><span class="stat-n">0</span><span class="stat-l">modules with a smoke test</span></div>
+        <div class="stat"><span class="stat-n">0</span><span class="stat-l">findings backed by a benchmark</span></div>
+        <div class="stat"><span class="stat-n">0</span><span class="stat-l">papers audited claim-to-code</span></div>
+      </div>
+      <h3 class="needs-h">What this pathway needs</h3>
+      <ul class="needs">
+        <li>Claim-to-code audits of methods papers in Behavior Research Methods</li>
+        <li>A run log: module, version, parameters, input and output fingerprints</li>
+        <li>A model card for every model a module depends on</li>
+      </ul>
+    </div>
+  </section>
+  <section class="band" id="accessibility">
+    <div class="band-in">
+      <p class="eyebrow">Pathway 4</p>
+      <h2><svg class="ico" aria-hidden="true"><use href="#i-group"/></svg> Accessibility</h2>
+      <p class="band-lede">Open hardware now costs hundreds, not tens of thousands. Models can run in the browser. What a research platform may distribute, and to whom, under the EU AI Act is part of access too.</p>
+      <h3 class="needs-h">What this pathway needs</h3>
+      <ul class="needs">
+        <li>Reference hardware a lab can afford</li>
+        <li>In-browser inference for labs without a GPU</li>
+        <li>A plain statement of what the AI Act allows us to distribute</li>
+      </ul>
     </div>
   </section>
   <section class="cta">
     <div class="cta-in">
-      <h2>Answer one of these</h2>
-      <p>Every open question above is a contribution: run one method on recordings from
-        this sphere, report what survived, and the cell stops being blank. Findings are
-        credited to whoever establishes them.</p>
+      <h2>Pick a pathway</h2>
+      <p>Each item under a pathway is a contribution someone can make. Run one method on
+        recordings from this sphere, report what survived, and the cell stops being
+        blank. Findings are credited to whoever establishes them.</p>
       <div class="btn-row">
         <a href="https://envisionbox.org/about.html" class="btn">Get involved</a>
         <a href="https://envisionbox.org/about.html" class="btn-ghost">About EnvisionBOX</a>

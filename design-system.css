@@ -936,3 +936,15 @@ a.ctx-conn:hover .ctx-conn-title { color: var(--link); }
 .lockup-dark   { display: none; }
 html[data-theme="dark"] .hero-lockup.lockup-light { display: none; }
 html[data-theme="dark"] .hero-lockup.lockup-dark  { display: block; }
+
+/* ── PATHWAYS ─────────────────────────────────────────────────────────
+   The four pathways on a sphere page: a card per pathway that links to
+   its section, and a short list under each section of what it needs. */
+a.feat { text-decoration: none; color: inherit; transition: border-color .15s; }
+a.feat:hover { border-color: var(--sph); }
+.path-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.needs-h { font-size: .8rem; font-weight: 800; letter-spacing: .4px; text-transform: uppercase; color: var(--tm); margin: 26px 0 8px; }
+.needs { margin: 0; padding-left: 1.2em; }
+.needs li { font-size: .88rem; line-height: 1.6; margin: 4px 0; }
+.needs li::marker { color: var(--sph); }
+.band h2 .ico { vertical-align: -.15em; margin-right: 6px; color: var(--sph); }
