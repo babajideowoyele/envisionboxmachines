@@ -251,6 +251,12 @@ a { color: inherit; text-decoration: none; }
   width: var(--rail-w);
   box-sizing: border-box;
 }
+/* in the module reader the bar belongs to the module, so the logo gives up
+   the rail width and sits as a plain home link */
+.logo-compact { width: auto; padding: 0 16px 0 14px; }
+/* a sphere site served from its own domain shows the logo one way only:
+   the lockup as designed, in the bar as in the footer */
+.logo-lockup  { display: block; height: 56px; width: auto; }
 .logo-mark { width: 46px; height: 46px; flex-shrink: 0; }
 /* the wordmark is the official lettering, outlined, from the sprite. It
    takes the bar's colour, so it is white here and dark anywhere light. */
@@ -925,8 +931,8 @@ a.ctx-conn:hover .ctx-conn-title { color: var(--link); }
    where the mark and the horizontal lettering stand in for it. Two
    rasters, grey lettering for light surfaces and white for dark, switched
    by theme; the footer is dark in both themes and takes the white one. */
-.hero-lockup   { display: block; height: 150px; width: auto; margin: 0 auto 26px; }
-.footer-lockup { display: block; height: 52px;  width: auto; }
+.hero-lockup   { display: block; height: 150px; width: auto; margin: 0 0 26px; }
+.footer-lockup { display: block; height: 96px;  width: auto; }
 .lockup-dark   { display: none; }
 html[data-theme="dark"] .hero-lockup.lockup-light { display: none; }
 html[data-theme="dark"] .hero-lockup.lockup-dark  { display: block; }
