@@ -52,6 +52,74 @@
       </div>
     </div>
   </section>
+  <section class="band band-tint" id="road">
+    <div class="band-in">
+      <h2>From tools to platform to infrastructure</h2>
+      <p class="band-lede">EnvisionBOX began as a collection of tutorials. The aim is to become a platform, then infrastructure that labs, consortia and funders can build on. Each step is defined by what someone else can rely on, and passing between steps has a gate: criteria from the BOX framework that must be met first.</p>
+      <ol class="road">
+        <li class="stage stage-now">
+          <div class="stage-head"><span class="stage-dot" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-tools"/></svg></span><span class="stage-when">Now</span></div>
+          <h3>Tools</h3>
+          <p class="stage-what">Runnable methods for studying machines and studying with them.</p>
+          <ul class="stage-items"><li>Feature extraction from a robot’s camera and microphone, in the ROS4HRI format</li><li>Validating a language model as a coder against human coders</li><li>Coding agent dyads with the same scheme used for human dyads</li><li>All runnable in Reachy Mini’s simulator, without a robot</li></ul>
+          <div class="stage-why"><b>Why</b> The methods exist in pieces across robotics, machine learning and psychology. No shared place runs them side by side.</div>
+          <ul class="sources"><li><a href="https://ros4hri.github.io/standard.html">ROS4HRI standard</a></li><li><a href="https://github.com/pollen-robotics/reachy_mini">Reachy Mini</a></li></ul>
+        </li>
+        <li class="gate" aria-label="Gate A">
+          <div class="gate-name">Gate A</div>
+          <p class="gate-lede">Mostly technical. A small team can meet it.</p>
+          <ul><li>Reads and writes a shared format</li><li>Automated tests and reference data</li><li>A validation report against human coding</li><li>Released in citable versions</li><li>A way for others to contribute back</li></ul>
+        </li>
+        <li class="stage stage-next">
+          <div class="stage-head"><span class="stage-dot" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-grid"/></svg></span><span class="stage-when">2027</span></div>
+          <h3>Platform</h3>
+          <p class="stage-what">Models and methods with their provenance on record.</p>
+          <ul class="stage-items"><li>A registry of every model a module uses: training data, licence, consent, AI Act status</li><li>A model card for each one</li><li>Claim-to-code audits of methods papers in Behavior Research Methods</li></ul>
+          <div class="stage-why"><b>Why</b> Provenance is mostly missing. An audit of popular datasets found licences miscategorised in about two thirds of cases, and the EDPB holds that a model trained on people is not anonymous by default.</div>
+          <ul class="sources"><li><a href="https://arxiv.org/abs/2310.16787">Longpre et al., Data Provenance Initiative</a></li><li><a href="https://edpb.europa.eu/system/files/2024-12/edpb_opinion_202428_ai-models_en.pdf">EDPB Opinion 28/2024</a></li><li><a href="https://bioimage-io.github.io/spec-bioimage-io/v0.5.15.0/">bioimage.io model specification</a></li></ul>
+        </li>
+        <li class="gate" aria-label="Gate B">
+          <div class="gate-name">Gate B</div>
+          <p class="gate-lede">Mostly social and institutional. No single lab can meet it.</p>
+          <ul><li>A community data standard</li><li>An open benchmark with fixed splits</li><li>Governance and a maintainer rota</li><li>Funding beyond a single grant</li><li>Provenance for every result</li><li>Evidence the measures hold across the populations served</li></ul>
+        </li>
+        <li class="stage stage-later">
+          <div class="stage-head"><span class="stage-dot" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-flow"/></svg></span><span class="stage-when">2028 onward</span></div>
+          <h3>Infrastructure</h3>
+          <p class="stage-what">An audit and provenance service other labs rely on.</p>
+          <ul class="stage-items"><li>A reproduction service run with HPI and TU Delft</li><li>A run log with fingerprints of every input and output</li><li>A registry other platforms can query</li><li>Shared governance for what the AI Act allows us to distribute</li></ul>
+          <div class="stage-why"><b>Why</b> In psychology, 36% of articles carrying an open-data badge reproduced without the authors’ help. Claim-to-code audits work for machine learning: AuditOwl traced 100 NeurIPS 2025 papers. None exist yet for behavioural science.</div>
+          <ul class="sources"><li><a href="https://doi.org/10.1098/rsos.201494">Hardwicke et al. 2021</a></li><li><a href="https://github.com/PascalIversen/auditowl-neurips2025">AuditOwl</a></li></ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+  <section class="band" id="principles">
+    <div class="band-in">
+      <h2>Three principles that hold at every stage</h2>
+      <p class="band-lede">From the BOX framework. These keep validity, researcher judgement and methodological diversity intact as tools grow into infrastructure.</p>
+      <div class="feat-grid principle-grid">
+        <div class="feat principle">
+          <div class="principle-code">P1</div>
+          <div class="feat-title">Validity as a feature</div>
+          <p class="principle-rule">Every tool ships with a synthetic test signal, a human-coded reference set and a short validation report naming its known failure conditions.</p>
+          <p class="feat-desc"><b>Here:</b> Every module that uses a model as a coder ships a human-coded reliability subset and reports agreement against it. Scripted agent dialogues serve as the synthetic test signal.</p>
+        </div>
+        <div class="feat principle">
+          <div class="principle-code">P2</div>
+          <div class="feat-title">Keep the researcher observant</div>
+          <p class="principle-rule">Every derived measure can be viewed against the video it came from, and this view is the default, not an option.</p>
+          <p class="feat-desc"><b>Here:</b> Every model annotation, and every measure of a robot’s behaviour, can be viewed against the recording or transcript it came from.</p>
+        </div>
+        <div class="feat principle">
+          <div class="principle-code">P3</div>
+          <div class="feat-title">Plurality by design</div>
+          <p class="principle-rule">Several trackers, features and metrics run through common interfaces, and benchmarks compare them rather than crown one.</p>
+          <p class="feat-desc"><b>Here:</b> Several models, open-weight and others, run through one interface. The registry records what each was trained on and where it holds; it does not endorse one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="band band-tint" id="standing">
     <div class="band-in">
       <h2>Where this sphere stands</h2>

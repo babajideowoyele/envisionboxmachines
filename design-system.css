@@ -952,3 +952,35 @@ a.feat:hover { border-color: var(--sph); }
 .sources li { font-size: .78rem; line-height: 1.5; margin: 2px 0; color: var(--tm); }
 .sources a { color: var(--tm); text-decoration: underline; }
 .sources a:hover { color: var(--link); }
+
+/* ── ROAD: tools → platform → infrastructure ─────────────────────────── */
+.road { list-style: none; margin: 26px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 150px 1fr 150px 1fr; gap: 14px; align-items: stretch; }
+.stage { background: var(--s); border: 1px solid var(--b); border-radius: var(--r-lg, 12px); padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.stage-now { border: 2px solid var(--sph); box-shadow: 0 6px 20px rgba(0,0,0,.06); }
+.stage-head { display: flex; align-items: center; gap: 10px; }
+.stage-dot { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--sph); color: var(--sph); background: var(--s); }
+.stage-dot .ico { width: 20px; height: 20px; }
+.stage-now .stage-dot { background: var(--sph); color: #fff; }
+.stage-when { font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--tm); }
+.stage-now .stage-when { color: var(--sph); }
+.stage h3 { margin: 4px 0 0; font-size: 1.25rem; font-weight: 900; }
+.stage-what { margin: 0; font-weight: 700; font-size: .92rem; }
+.stage-items { margin: 2px 0 0; padding-left: 1.1em; font-size: .85rem; line-height: 1.55; }
+.stage-items li::marker { color: var(--sph); }
+.stage-why { margin-top: auto; font-size: .8rem; line-height: 1.55; color: var(--tm); background: var(--s2); border-radius: var(--r-md, 8px); padding: 10px 12px; }
+.stage-why b { color: var(--t); margin-right: 4px; }
+.stage .sources { margin: 0; }
+.gate { position: relative; align-self: center; text-align: left; font-size: .74rem; line-height: 1.45; color: var(--tm); padding: 12px 10px; border-top: 2px dashed var(--sph); border-bottom: 2px dashed var(--sph); }
+.gate::after { content: "→"; position: absolute; right: -11px; top: -14px; font-size: 1.2rem; color: var(--sph); }
+.gate-name { font-weight: 900; font-size: .8rem; color: var(--t); text-transform: uppercase; letter-spacing: .08em; }
+.gate-lede { margin: 2px 0 6px; font-style: italic; }
+.gate ul { margin: 0; padding-left: 1em; }
+.principle-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.principle { border-top: 3px solid var(--sph); }
+.principle-code { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: .8rem; color: var(--sph); }
+.principle-rule { margin: 4px 0 8px; font-size: .86rem; line-height: 1.55; }
+@media (max-width: 1020px) {
+  .road { grid-template-columns: 1fr; }
+  .gate { border: 0; border-left: 2px dashed var(--sph); padding: 8px 0 8px 14px; }
+  .gate::after { content: "↓"; right: auto; left: -9px; top: auto; bottom: -16px; }
+}
