@@ -98,7 +98,7 @@
     <div class="band-in">
       <p class="eyebrow">Pathway 1</p>
       <h2><svg class="ico" aria-hidden="true"><use href="#i-people"/></svg> Participation</h2>
-      <p class="band-lede">A robot’s camera records the people around it, often bystanders who never consented. Its behaviour is generated from specific people’s bodies. Its logs can identify someone by gait. Provenance, meaning what a model learned from and under what consent, is this sphere’s form of masking.</p>
+      <p class="band-lede">Every robot corpus and every behaviour model is a human dataset. Seamless Interaction holds over 4,000 participants with no public consent text. Whisper was trained on 680,000 scraped hours. Sapiens on 300 million unreleased images. Two thirds of Hugging Face dataset licences are mislabelled. The EDPB holds that a model trained on people is not anonymous by default. Provenance — what a model learned from, under what terms — is this sphere’s form of masking.</p>
       <div class="feat-grid">
         <div class="feat">
           <span class="feat-icon" aria-hidden="true"><svg class="ico ico-lg" aria-hidden="true"><use href="#i-face"/></svg></span>
@@ -118,10 +118,17 @@
       </div>
       <h3 class="needs-h">What this pathway needs</h3>
       <ul class="needs">
-        <li>A consent and licence field on every dataset and model listed</li>
-        <li>A training-data summary for every model a module uses</li>
-        <li>De-identification as the default step in robot-view pipelines</li>
+        <li>A registry that records, per model: licence, training-data licence, whether the training set is available, consent documentation, AI Act status, and whether outputs identify people</li>
+        <li>Datasheets for the openly downloadable HRI corpora, recording platform, licence tier, release form and whether a consent statement exists</li>
+        <li>De-identification as the mandatory last step in robot-view pipelines</li>
         <li>Terms on which people contribute recordings or compute to model studies</li>
+      </ul>
+      <h3 class="needs-h">Sources</h3>
+      <ul class="sources">
+        <li><a href="https://huggingface.co/datasets/facebook/seamless-interaction">Seamless Interaction dataset card</a></li>
+        <li><a href="https://raw.githubusercontent.com/openai/whisper/HEAD/model-card.md">Whisper model card</a></li>
+        <li><a href="https://edpb.europa.eu/system/files/2024-12/edpb_opinion_202428_ai-models_en.pdf">EDPB Opinion 28/2024 on AI models</a></li>
+        <li><a href="https://bioimage-io.github.io/spec-bioimage-io/v0.5.15.0/">bioimage.io model specification, the registry template</a></li>
       </ul>
     </div>
   </section>
@@ -129,7 +136,7 @@
     <div class="band-in">
       <p class="eyebrow">Pathway 2</p>
       <h2><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Validity</h2>
-      <p class="band-lede">As instruments: the pose, face and speech models every module runs on, and whether they hold for the population they are pointed at. As subjects: whether a behavioural measure means the same thing when the subject is a model.</p>
+      <p class="band-lede">Machine coders hold for observable features and group means, and not for inferred constructs: kappa around .5–.6 where human pairs reach .84–.97. Models as simulated participants reproduce means, not variance. A psychometric test built for people has to be re-validated before it says anything about a model. As instruments, the pose, face and speech models every module runs on have to hold for the population they are pointed at.</p>
       <h3 class="needs-h">Known so far, with how it is known</h3>
       <div class="qlist">
         <div class="q">
@@ -210,9 +217,15 @@
       </div>
       <h3 class="needs-h">What this pathway needs</h3>
       <ul class="needs">
-        <li>Model coders benchmarked against human coders</li>
-        <li>The same multimodal measures applied to robot and agent behaviour</li>
-        <li>Validity of psychometric tests when applied to language models</li>
+        <li>Every model-as-annotator module requires a human-coded reliability subset and reports kappa against it</li>
+        <li>The same multimodal measures applied to robot and agent behaviour, starting with scripted dyads between open-weight agents pinned by hash</li>
+        <li>Validity of psychometric tests when the subject is a language model</li>
+      </ul>
+      <h3 class="needs-h">Sources</h3>
+      <ul class="sources">
+        <li><a href="https://arxiv.org/pdf/2611.05181">LLM annotation of behaviour, 2026</a></li>
+        <li><a href="https://arxiv.org/abs/2310.11667">SOTOPIA, social scenarios for agents</a></li>
+        <li><a href="https://llm-checklist.com/">GUIDE-LLM reporting checklist</a></li>
       </ul>
     </div>
   </section>
@@ -220,7 +233,7 @@
     <div class="band-in">
       <p class="eyebrow">Pathway 3</p>
       <h2><svg class="ico" aria-hidden="true"><use href="#i-loop"/></svg> Reproducibility</h2>
-      <p class="band-lede">Claim-to-code audits exist for machine learning but not for behaviour research. Model cards for robot policies name no training data. This pathway transposes the audit to behaviour methods papers and keeps a run log with output fingerprints.</p>
+      <p class="band-lede">Claim-to-code audits exist for machine learning — AuditOwl traced 100 NeurIPS 2025 papers to their code — and not for behavioural science, where about a third of papers reproduce without the authors and three quarters of archived R files fail on first run. TU Delft’s Digital Competence Centre already issues CODECHECK certificates. This pathway transposes the audit to Behavior Research Methods and submits it to Open Science NL’s replication instrument as a reproduction.</p>
       <div class="stat-row">
         <div class="stat"><span class="stat-n">0</span><span class="stat-l">modules with a pinned environment</span></div>
         <div class="stat"><span class="stat-n">0</span><span class="stat-l">modules with a smoke test</span></div>
@@ -229,9 +242,16 @@
       </div>
       <h3 class="needs-h">What this pathway needs</h3>
       <ul class="needs">
-        <li>Claim-to-code audits of methods papers in Behavior Research Methods</li>
+        <li>A claim-to-code audit pilot on Behavior Research Methods papers: static trace, R-aware gates, synthetic stand-ins where data cannot be shared, paired with a CODECHECK certificate</li>
         <li>A run log: module, version, parameters, input and output fingerprints</li>
         <li>A model card for every model a module depends on</li>
+        <li>Weekly headless execution of every module</li>
+      </ul>
+      <h3 class="needs-h">Sources</h3>
+      <ul class="sources">
+        <li><a href="https://github.com/PascalIversen/auditowl-neurips2025">AuditOwl</a></li>
+        <li><a href="https://codecheck.org.uk/">CODECHECK</a></li>
+        <li><a href="https://doi.org/10.58875/BAOC1480">de Bruïne, Hillebrink, de Man, 2026</a></li>
       </ul>
     </div>
   </section>
@@ -239,12 +259,20 @@
     <div class="band-in">
       <p class="eyebrow">Pathway 4</p>
       <h2><svg class="ico" aria-hidden="true"><use href="#i-group"/></svg> Accessibility</h2>
-      <p class="band-lede">Open hardware now costs hundreds, not tens of thousands. Models can run in the browser. What a research platform may distribute, and to whom, under the EU AI Act is part of access too.</p>
+      <p class="band-lede">Open hardware now costs under $500: Reachy Mini is $399–499, Furhat about €5,000 a year, and Pepper is end-of-life after Aldebaran’s 2025 insolvency. WebGPU has shipped in all four major browsers since November 2025, so pose models run in the browser. The AI Act’s open-source carve-out does not cover Article 5 or Article 50 systems, so what this platform may distribute is stated per module.</p>
       <h3 class="needs-h">What this pathway needs</h3>
       <ul class="needs">
-        <li>Reference hardware a lab can afford</li>
-        <li>In-browser inference for labs without a GPU</li>
-        <li>A plain statement of what the AI Act allows us to distribute</li>
+        <li>Reachy Mini plus its MuJoCo simulation as reference hardware, so a module runs without a robot</li>
+        <li>In-browser inference, with its limits stated: weights still download, kinematics still identify</li>
+        <li>A governance checklist every module links to: anonymity assessment, Article 50 marking, reporting items</li>
+        <li>A written AI Act position before any emotion-recognition module is listed</li>
+      </ul>
+      <h3 class="needs-h">Sources</h3>
+      <ul class="sources">
+        <li><a href="https://github.com/pollen-robotics/reachy_mini">Reachy Mini</a></li>
+        <li><a href="https://web.dev/blog/webgpu-supported-major-browsers">WebGPU in all major browsers</a></li>
+        <li><a href="https://artificialintelligenceact.eu/article/5/">AI Act, Article 5</a></li>
+        <li><a href="https://artificialintelligenceact.eu/article/50/">AI Act, Article 50</a></li>
       </ul>
     </div>
   </section>

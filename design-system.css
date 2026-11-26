@@ -948,3 +948,7 @@ a.feat:hover { border-color: var(--sph); }
 .needs li { font-size: .88rem; line-height: 1.6; margin: 4px 0; }
 .needs li::marker { color: var(--sph); }
 .band h2 .ico { vertical-align: -.15em; margin-right: 6px; color: var(--sph); }
+.sources { margin: 0; padding-left: 1.2em; }
+.sources li { font-size: .78rem; line-height: 1.5; margin: 2px 0; color: var(--tm); }
+.sources a { color: var(--tm); text-decoration: underline; }
+.sources a:hover { color: var(--link); }
